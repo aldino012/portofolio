@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UI / UX Design Case Studies – Figma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --bg-light: #f8fafc;
+      --border-light: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text-dark);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-light);
+      background: #ffffff;
+    }
+
+    header .container {
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--bg-light);
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    /* ================= PROJECT CARD ================= */
+    .project {
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .project-type {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .project-content {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .project ul {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .project li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    /* ================= SCREENSHOT ================= */
+    .project-preview {
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-light);
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #ffffff;
+    }
+
+    .preview-caption {
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-light);
+      text-align: center;
+    }
+
+    .project-actions {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      color: var(--primary);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .note {
+      margin-top: 50px;
+      padding: 20px;
+      background: var(--bg-light);
+      border-left: 4px solid var(--primary);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-light);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .project-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <strong>UI / UX Case Study</strong>
+    <a href="../index.html">← Back to Portfolio</a>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <span class="badge">UI / UX Design • Figma</span>
+    <h1>UI / UX Design Case Studies</h1>
+    <p>
+      A collection of interface design concepts and prototypes created using Figma,
+      focusing on layout exploration, user flow, and interaction design.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <!-- PROJECT 1 -->
+    <div class="project">
+      <div class="project-header">
+        <h2>E-Learning Mobile App – UI Concept</h2>
+        <span class="project-type">Wireframe / UI Exploration</span>
+      </div>
+
+      <div class="project-content">
+        <div>
+          <p>Mobile-first UI concept for an e-learning application.</p>
+          <ul>
+            <li>Content hierarchy</li>
+            <li>Simple navigation</li>
+            <li>Mobile usability</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://www.figma.com/design/E0eIlxjwUAl4V1O78uk5U3/Untitled"
+               target="_blank" class="btn">View on Figma</a>
+          </div>
+        </div>
+
+        <div class="project-preview">
+          <img src="screenshot/e-learning.png" alt="E-learning UI">
+          <div class="preview-caption">E-learning mobile UI wireframe</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project">
+      <div class="project-header">
+        <h2>Lecturer Rating App – UI Concept</h2>
+        <span class="project-type">UI Concept / UX Flow</span>
+      </div>
+
+      <div class="project-content">
+        <div>
+          <p>Conceptual UI for lecturer rating application.</p>
+          <ul>
+            <li>Clear form flow</li>
+            <li>User-friendly feedback</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://www.figma.com/design/973jDvVHAfQfmvvY4CMynn/Untitled"
+               target="_blank" class="btn">View on Figma</a>
+          </div>
+        </div>
+
+        <div class="project-preview">
+          <img src="screenshot/rating-dosen.png" alt="Rating Dosen UI">
+          <div class="preview-caption">Lecturer rating UI concept</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project">
+      <div class="project-header">
+        <h2>Kebun Hijau Product Catalog</h2>
+        <span class="project-type">UI Design / Visual Layout</span>
+      </div>
+
+      <div class="project-content">
+        <div>
+          <p>Product catalog design focusing on visual clarity.</p>
+          <ul>
+            <li>Product-focused layout</li>
+            <li>Clean presentation</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://www.figma.com/design/hNzFvU3xfp2nhBZMaOEN9g/katalog"
+               target="_blank" class="btn">View on Figma</a>
+          </div>
+        </div>
+
+        <div class="project-preview">
+          <img src="screenshot/kebun-hijau.png" alt="Katalog Kebun Hijau">
+          <div class="preview-caption">Kebun Hijau catalog UI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="project">
+      <div class="project-header">
+        <h2>Game Platformer Prototype</h2>
+        <span class="project-type">Interactive Prototype</span>
+      </div>
+
+      <div class="project-content">
+        <div>
+          <p>Prototype UI for platformer game planning.</p>
+          <ul>
+            <li>Gameplay flow</li>
+            <li>Interactive elements</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://www.figma.com/proto/PFt9lo7OQwazoEz7Wo1Rg9"
+               target="_blank" class="btn">Open Prototype</a>
+          </div>
+        </div>
+
+        <div class="project-preview">
+          <img src="screenshot/game-platform.png" alt="Game Prototype">
+          <div class="preview-caption">Game UI prototype</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      These designs are presented as concepts and prototypes.
+      They demonstrate UI thinking, layout exploration, and interaction planning.
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2025 Achmad Aldino – UI / UX Design Case Studies
+  </div>
+</footer>
+
+</body>
+</html>
