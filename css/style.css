@@ -675,3 +675,60 @@ footer p {
     flex-direction: column;
   }
 }
+
+
+/* Style untuk tombol CV */
+.cv-btn {
+    background-color: #22c55e;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid #22c55e;
+}
+
+.cv-btn:hover {
+    background-color: #16a34a;
+    border-color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Atau alternatif style jika ingin tombol outline */
+.cv-btn.outline {
+    background-color: transparent;
+    color: #22c55e;
+    border: 2px solid #22c55e;
+}
+
+.cv-btn.outline:hover {
+    background-color: #22c55e;
+    color: white;
+}
+
+/* Atur spacing untuk multiple buttons di hero */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+/* Responsive untuk tombol di hero */
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero-actions .btn,
+    .hero-actions .cv-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
