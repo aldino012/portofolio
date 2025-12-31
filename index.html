@@ -8,7 +8,10 @@
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
@@ -42,16 +45,21 @@
       <div class="container hero-content">
 
         <div class="hero-text">
-          <h1>Hi, I’m Achmad Aldino</h1>
+          <h1>Hi, I'm Achmad Aldino</h1>
           <h2>Frontend & Digital Media Developer</h2>
           <p>
             I build clean, modern, and interactive digital experiences
             using frontend technologies and creative tools.
+            Focused on creating user-friendly interfaces and engaging content.
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Contact Me</a>
+            <a href="#projects" class="btn primary">
+              <i class="fas fa-code"></i> View Projects
+            </a>
+            <a href="#contact" class="btn secondary">
+              <i class="fas fa-envelope"></i> Contact Me
+            </a>
           </div>
         </div>
 
@@ -65,12 +73,14 @@
     <!-- ================= ABOUT ================= -->
     <section id="about">
       <div class="container">
+        <span class="section-subtitle">Introduction</span>
         <h3>About Me</h3>
         <p>
           I am a frontend and digital media developer with a strong interest
           in user interface design, interactive content, and AI-assisted workflows.
           I enjoy creating simple yet effective digital products that are
-          visually clear and easy to use.
+          visually clear and easy to use. My approach combines technical
+          skills with creative thinking to deliver engaging experiences.
         </p>
       </div>
     </section>
@@ -78,33 +88,47 @@
     <!-- ================= SKILLS ================= -->
     <section id="skills">
       <div class="container">
+        <span class="section-subtitle">My Expertise</span>
         <h3>Skills</h3>
 
         <div class="skills-grid">
 
           <div class="skill-group">
-            <h4>Frontend & Interactive</h4>
+            <h4>
+              <i class="fas fa-laptop-code"></i>
+              Frontend & Interactive
+            </h4>
             <ul>
               <li>AI-assisted Frontend Development (HTML, CSS, JavaScript)</li>
               <li>Interactive Media Development (Adobe Animate)</li>
               <li>UI Prototyping (Figma)</li>
+              <li>Responsive Web Design</li>
             </ul>
           </div>
 
           <div class="skill-group">
-            <h4>Content & Design</h4>
+            <h4>
+              <i class="fas fa-palette"></i>
+              Content & Design
+            </h4>
             <ul>
               <li>Copywriting for Web & Digital Content</li>
               <li>Visual Design using Canva</li>
               <li>Prompt Writing for Creative & Web Output</li>
+              <li>Digital Media Production</li>
             </ul>
           </div>
 
           <div class="skill-group">
-            <h4>Tools & Productivity</h4>
+            <h4>
+              <i class="fas fa-tools"></i>
+              Tools & Productivity
+            </h4>
             <ul>
               <li>Google Docs & Word (Documentation)</li>
               <li>English Reading & Technical Understanding</li>
+              <li>Version Control (Git)</li>
+              <li>Project Management</li>
             </ul>
           </div>
 
@@ -115,6 +139,7 @@
     <!-- ================= PROJECTS ================= -->
     <section id="projects">
       <div class="container">
+        <span class="section-subtitle">My Work</span>
         <h3>Projects</h3>
 
         <div class="projects-grid">
@@ -125,13 +150,14 @@
             <p>
               Interactive learning media for elementary school students
               developed using Adobe Animate. Demo is presented as a video
-              walkthrough due to Flash deprecation.
+              walkthrough due to Flash deprecation. Features engaging
+              animations and educational content.
             </p>
             <span>Adobe Animate</span>
 
             <div class="project-actions">
                 <a href="demo/media-interaktif.html" target="_blank" class="btn primary">
-                    Watch Demo
+                  <i class="fas fa-play-circle"></i> Watch Demo
                 </a>
             </div>
           </div>
@@ -141,13 +167,14 @@
             <h4>Campus Point System Website</h4>
             <p>
               A frontend website for managing and displaying campus point systems,
-              built using AI-assisted frontend development.
+              built using AI-assisted frontend development. Features a clean
+              dashboard and responsive design.
             </p>
             <span>HTML • CSS • JavaScript</span>
 
             <div class="project-actions">
               <a href="demo/demo-detail-poin.html" target="_blank" class="btn secondary">
-                View Demo
+                <i class="fas fa-external-link-alt"></i> View Demo
               </a>
             </div>
           </div>
@@ -157,16 +184,35 @@
             <h4>Catalog Website UI Design</h4>
             <p>
               A catalog website interface designed in Figma, focusing on
-              layout clarity and user experience.
+              layout clarity and user experience. Includes multiple pages
+              and interactive components.
             </p>
             <span>Figma</span>
 
             <div class="project-actions">
               <a href="demo/demo-detail-figma.html" target="_blank" class="btn secondary">
-                View Design
+                <i class="fas fa-eye"></i> View Design
               </a>
             </div>
           </div>
+          
+          <!-- Project 4 -->
+          <div class="project-card">
+            <h4>Digital Media Portfolio</h4>
+            <p>
+              Collection of digital media projects including promotional
+              materials, visual designs, and interactive content created
+              using Canva and other design tools.
+            </p>
+            <span>Canva • Digital Design</span>
+
+            <div class="project-actions">
+              <a href="#" class="btn secondary">
+                <i class="fas fa-images"></i> View Portfolio
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -174,6 +220,7 @@
     <!-- ================= EXPERIENCE ================= -->
     <section id="experience">
       <div class="container">
+        <span class="section-subtitle">Background</span>
         <h3>Experience</h3>
 
         <div class="experience-list">
@@ -182,7 +229,8 @@
             <h4>Interactive Learning Media Developer</h4>
             <p>
               Developed interactive educational media for elementary school
-              students using Adobe Animate.
+              students using Adobe Animate. Created engaging animations and
+              learning modules to enhance student engagement.
             </p>
           </div>
 
@@ -191,6 +239,7 @@
             <p>
               Designed a catalog website interface using Figma and
               built a campus point system website with AI-assisted frontend development.
+              Focused on user experience and responsive design.
             </p>
           </div>
 
@@ -198,6 +247,8 @@
             <h4>Visual Content Designer</h4>
             <p>
               Created promotional and informational poster designs using Canva.
+              Developed visual content for digital platforms with emphasis
+              on clarity and visual appeal.
             </p>
           </div>
 
@@ -208,18 +259,32 @@
     <!-- ================= CONTACT ================= -->
     <section id="contact">
       <div class="container">
-        <h3>Contact</h3>
+        <div class="contact-content">
+          <div class="contact-info">
+            <span class="section-subtitle">Get in Touch</span>
+            <h3>Contact</h3>
+            <p>
+              Feel free to reach out for collaboration, work opportunities,
+              or project discussions. I'm always open to discussing new ideas
+              and creative projects.
+            </p>
 
-        <p>
-          Feel free to reach out for collaboration, work opportunities,
-          or project discussions.
-        </p>
-
-        <ul class="contact-list">
-          <li>Email: <a href="mailto:yozukakit@email.com">yozukakit@email.com</a></li>
-          <li>GitHub: <a href="https://github.com/aldino012" target="_blank">github.com/aldino012</a></li>
-          <li>LinkedIn: <a href="#" target="_blank">linkedin.com/in/username</a></li>
-        </ul>
+            <ul class="contact-list">
+              <li>
+                <a href="mailto:yozukakit@email.com">
+                  <i class="fas fa-envelope"></i>
+                  yozukakit@email.com
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/aldino012" target="_blank">
+                  <i class="fab fa-github"></i>
+                  github.com/aldino012
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -229,6 +294,7 @@
   <footer>
     <div class="container">
       <p>© 2025 Achmad Aldino. Built with HTML, CSS, and JavaScript.</p>
+      <p>Designed with focus on clarity, simplicity, and user experience.</p>
     </div>
   </footer>
 

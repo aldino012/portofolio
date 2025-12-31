@@ -2,21 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Academic Point Management System – Case Study</title>
+  <title>Campus Point System | Achmad Aldino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
       --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
       --text-dark: #0f172a;
       --text-muted: #475569;
       --bg-light: #f8fafc;
       --border-light: #e5e7eb;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --transition: all 0.3s ease;
     }
 
     * {
@@ -30,249 +41,609 @@
       background: #ffffff;
       color: var(--text-dark);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .container {
+    /* Header */
+    .demo-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .header-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border-light);
-      background: #ffffff;
-    }
-
-    header .container {
+      padding: 0 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 64px;
+      height: 72px;
     }
 
-    header a {
+    .logo a {
+      font-size: 1.2rem;
+      font-weight: 600;
       text-decoration: none;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo a::before {
+      content: "◈";
       color: var(--primary);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
       font-weight: 500;
+      transition: var(--transition);
       font-size: 0.95rem;
     }
 
-    section {
-      padding: 70px 0;
+    .back-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
+    /* Main Content */
+    .demo-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
+    /* Hero Section */
+    .demo-hero {
+      margin-bottom: 60px;
     }
 
-    h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: var(--text-muted);
-      max-width: 800px;
-    }
-
-    .badge {
+    .project-badge {
       display: inline-block;
-      background: var(--bg-light);
+      background: var(--primary-light);
       color: var(--primary);
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-size: 0.85rem;
+      font-weight: 600;
       margin-bottom: 20px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .demo-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .demo-hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tech-item {
+      background: var(--bg-light);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+    }
+
+    /* Project Info */
+    .project-info {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
     }
 
     .info-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
-    .info-box {
+    .info-card {
+      background: var(--bg-light);
       border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: var(--radius-md);
+      padding: 30px;
+      transition: var(--transition);
     }
 
-    .info-box ul {
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card ul {
       list-style: none;
-      margin-top: 10px;
     }
 
-    .info-box li {
-      margin-bottom: 8px;
-      font-size: 0.95rem;
+    .info-card li {
+      margin-bottom: 12px;
       color: var(--text-muted);
+      font-size: 0.95rem;
+      padding-left: 20px;
+      position: relative;
     }
 
-    .screenshots {
+    .info-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Screenshots */
+    .screenshots-section {
+      margin-bottom: 60px;
+    }
+
+    .screenshot-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 40px;
+      gap: 30px;
+      margin-top: 30px;
     }
 
     .screenshot-card {
       border: 1px solid var(--border-light);
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       overflow: hidden;
-      background: #ffffff;
+      background: white;
+      transition: var(--transition);
+      position: relative;
     }
 
-    .screenshot-card img {
+    .screenshot-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .screenshot-img {
       width: 100%;
+      height: 280px;
+      object-fit: cover;
       display: block;
+      background: #f5f5f5;
     }
 
     .screenshot-caption {
-      padding: 14px 16px;
+      padding: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .screenshot-caption h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .screenshot-caption p {
       font-size: 0.9rem;
       color: var(--text-muted);
+      margin: 0;
     }
 
-    .note {
+    .screenshot-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(37, 99, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .screenshot-card:hover .screenshot-overlay {
+      opacity: 1;
+    }
+
+    .overlay-text {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* Note Section */
+    .note-section {
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      border: 1px solid var(--border-light);
       margin-top: 40px;
-      padding: 20px;
-      border-left: 4px solid var(--primary);
-      background: var(--bg-light);
+    }
+
+    .note-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .note-content p {
+      color: var(--text-dark);
+      margin-bottom: 12px;
       font-size: 0.95rem;
-      color: var(--text-muted);
     }
 
-    footer {
+    /* Footer */
+    .demo-footer {
       border-top: 1px solid var(--border-light);
-      padding: 30px 0;
+      padding: 40px 0;
       text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      margin-top: 40px;
     }
 
+    .demo-footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+
+    /* Image Loading State */
+    .img-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Responsive */
     @media (max-width: 900px) {
-      .info-grid,
-      .screenshots {
+      .screenshot-grid,
+      .info-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .demo-hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .demo-container {
+        padding: 40px 20px;
+      }
+      
+      .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 15px;
+      }
+      
+      .demo-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .info-card,
+      .note-section {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-stack {
+        justify-content: center;
+      }
+      
+      .back-btn {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <strong>Case Study</strong>
-      <a href="../index.html">← Back to Portfolio</a>
+  <!-- Header -->
+  <header class="demo-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="../index.html">Achmad Aldino</a>
+      </div>
+      <a href="../index.html#projects" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
     </div>
   </header>
 
-  <!-- HERO / INTRO -->
-  <section>
-    <div class="container">
-      <span class="badge">Academic System • Case Study</span>
-      <h1>Academic Point Management System</h1>
+  <!-- Main Content -->
+  <main class="demo-container">
+    
+    <!-- Hero Section -->
+    <section class="demo-hero">
+      <span class="project-badge">Frontend Development</span>
+      <h1>Campus Point Management System</h1>
       <p>
-        A web-based system designed to manage and verify student academic
-        and non-academic activities through a structured point-based mechanism.
-        This project focuses on workflow clarity, role-based access,
-        and data visualization.
+        A comprehensive web-based platform for managing student academic and non-academic achievements 
+        through a structured point system. This system streamlines activity verification, 
+        progress tracking, and performance reporting for educational institutions.
       </p>
-    </div>
-  </section>
+      
+      <div class="tech-stack">
+        <span class="tech-item">HTML5</span>
+        <span class="tech-item">CSS3</span>
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">Responsive Design</span>
+        <span class="tech-item">UI/UX Design</span>
+        <span class="tech-item">System Architecture</span>
+      </div>
+    </section>
 
-  <!-- PROJECT INFO -->
-  <section>
-    <div class="container">
-      <h2>Project Overview</h2>
-
+    <!-- Project Information -->
+    <section class="project-info">
+      <h2 class="section-title">Project Overview</h2>
+      
       <div class="info-grid">
-        <div class="info-box">
-          <h3>Key Features</h3>
+        <div class="info-card">
+          <h3><i class="fas fa-cogs"></i> System Features</h3>
           <ul>
             <li>Role-based dashboard (Admin & Student)</li>
             <li>Activity submission and verification workflow</li>
             <li>Master point management system</li>
             <li>Academic & non-academic categorization</li>
-            <li>Data tables, pagination, and status indicators</li>
+            <li>Data tables with pagination</li>
+            <li>Status indicators and progress tracking</li>
             <li>Charts and summary statistics</li>
           </ul>
         </div>
-
-        <div class="info-box">
-          <h3>Technology & Stack</h3>
+        
+        <div class="info-card">
+          <h3><i class="fas fa-layer-group"></i> Technical Stack</h3>
           <ul>
-            <li>Frontend: React / Next.js</li>
-            <li>Styling: Tailwind / Custom UI</li>
-            <li>Backend: API-based service</li>
-            <li>Deployment: Vercel (Frontend), Railway (Backend)</li>
-            <li>Authentication: Role-based access control</li>
+            <li>Frontend: HTML, CSS, JavaScript</li>
+            <li>Styling: Custom CSS with modern design system</li>
+            <li>Layout: Responsive Grid & Flexbox</li>
+            <li>Architecture: Component-based structure</li>
+            <li>Compatibility: Cross-browser support</li>
+            <li>Performance: Optimized loading</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SCREENSHOTS -->
-  <section>
-    <div class="container">
-      <h2>Interface Screenshots</h2>
-
-      <div class="screenshots">
-
+    <!-- Screenshots -->
+    <section class="screenshots-section">
+      <h2 class="section-title">Interface Design</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        Screenshots showcasing key interfaces of the system. Design focuses on clarity, 
+        usability, and efficient information architecture.
+      </p>
+      
+      <div class="screenshot-grid">
+        
+        <!-- Login Page -->
         <div class="screenshot-card">
-          <img src="./screenshot/login-page.png" alt="Login Page">
+          <img src="./screenshot/login-page.png" alt="Login Page" class="screenshot-img img-loading" 
+               onload="this.classList.remove('img-loading')"
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
           <div class="screenshot-caption">
-            Authentication page with role-based login (Student & Admin).
+            <h4>Authentication Interface</h4>
+            <p>Role-based login system with secure authentication flow for students and administrators.</p>
+          </div>
+          <div class="screenshot-overlay">
+            <div class="overlay-text">Login Interface</div>
           </div>
         </div>
-
+        
+        <!-- Admin Dashboard -->
         <div class="screenshot-card">
-          <img src="./screenshot/admindashboard.png" alt="Admin Dashboard">
+          <img src="./screenshot/admindashboard.png" alt="Admin Dashboard" class="screenshot-img img-loading"
+               onload="this.classList.remove('img-loading')"
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
           <div class="screenshot-caption">
-            Admin dashboard showing summary statistics and activity distribution.
+            <h4>Administrator Dashboard</h4>
+            <p>Comprehensive overview with statistics, activity monitoring, and system management tools.</p>
+          </div>
+          <div class="screenshot-overlay">
+            <div class="overlay-text">Admin Dashboard</div>
           </div>
         </div>
-
+        
+        <!-- Master Point -->
         <div class="screenshot-card">
-          <img src="./screenshot/masterpage.png" alt="Master Point">
+          <img src="./screenshot/masterpage.png" alt="Master Point" class="screenshot-img img-loading"
+               onload="this.classList.remove('img-loading')"
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
           <div class="screenshot-caption">
-            Master point management for defining activity categories and point values.
+            <h4>Point Configuration</h4>
+            <p>Master point management interface for defining activity categories and point values.</p>
+          </div>
+          <div class="screenshot-overlay">
+            <div class="overlay-text">Point Management</div>
           </div>
         </div>
-
+        
+        <!-- Student Dashboard -->
         <div class="screenshot-card">
-          <img src="./screenshot/mhsdashboard.png" alt="Student Dashboard">
+          <img src="./screenshot/mhsdashboard.png" alt="Student Dashboard" class="screenshot-img img-loading"
+               onload="this.classList.remove('img-loading')"
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
           <div class="screenshot-caption">
-            Student dashboard displaying personal progress and point achievements.
+            <h4>Student Progress Dashboard</h4>
+            <p>Personal dashboard displaying achievements, pending activities, and progress statistics.</p>
+          </div>
+          <div class="screenshot-overlay">
+            <div class="overlay-text">Student Dashboard</div>
           </div>
         </div>
-
+        
       </div>
+    </section>
 
-      <div class="note">
-        This project is presented as a <strong>case study</strong>.
-        Live access is not publicly available due to sensitive institutional data
-        and privacy considerations. Demo access can be provided upon request.
+    <!-- Note Section -->
+    <section class="note-section">
+      <h3 class="note-title"><i class="fas fa-info-circle"></i> Project Context</h3>
+      <div class="note-content">
+        <p><strong>Disclaimer:</strong> This project is presented as a <strong>case study</strong> of frontend development and system design.</p>
+        <p>Live access to the complete system is restricted due to institutional policies and data privacy considerations.</p>
+        <p>The screenshots demonstrate the user interface design, layout structure, and visual hierarchy implemented in this project.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      © 2025 Achmad Aldino – Academic Point Management System Case Study
+  </main>
+
+  <!-- Footer -->
+  <footer class="demo-footer">
+    <div>
+      <p>© 2025 Achmad Aldino | Campus Point System Case Study</p>
+      <p>Frontend Development & UI/UX Design</p>
+      <p>Portfolio Project | Educational System Design</p>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Add hover effect to info cards
+      const infoCards = document.querySelectorAll('.info-card');
+      infoCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-4px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Add click to zoom effect for screenshots
+      const screenshots = document.querySelectorAll('.screenshot-card img');
+      screenshots.forEach(img => {
+        img.addEventListener('click', function() {
+          const overlay = document.createElement('div');
+          overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: zoom-out;
+          `;
+          
+          const enlargedImg = document.createElement('img');
+          enlargedImg.src = this.src;
+          enlargedImg.alt = this.alt;
+          enlargedImg.style.cssText = `
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+          `;
+          
+          overlay.appendChild(enlargedImg);
+          document.body.appendChild(overlay);
+          
+          overlay.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+          });
+        });
+      });
+
+      // Image loading handling
+      const images = document.querySelectorAll('.screenshot-img');
+      images.forEach(img => {
+        if (img.complete && img.naturalHeight !== 0) {
+          img.classList.remove('img-loading');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

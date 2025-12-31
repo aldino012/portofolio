@@ -2,49 +2,558 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive Learning Media Demo</title>
+  <title>Interactive Learning Media Demo | Achmad Aldino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: #0f172a;
-      color: #ffffff;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --text-dark: #0f172a;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --border-dark: #334155;
+      --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    .video-wrapper {
-      max-width: 900px;
-      width: 100%;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      min-height: 100vh;
       padding: 20px;
     }
 
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .demo-header {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo a::before {
+      content: "◈";
+      color: var(--primary);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .demo-wrapper {
+      padding: 40px 0;
+    }
+
+    .demo-header-content {
       text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .demo-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .demo-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .demo-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Video Container */
+    .video-container {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow-dark);
+      margin-bottom: 40px;
+      border: 1px solid var(--border-dark);
+    }
+
+    .video-player-wrapper {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 20px;
     }
 
     video {
       width: 100%;
-      border-radius: 12px;
-      outline: none;
+      display: block;
+      border-radius: var(--radius-md);
+    }
+
+    .video-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding: 0 10px;
+    }
+
+    .play-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .play-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .time-display {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Project Details */
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .detail-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-dark);
+      transition: var(--transition);
+    }
+
+    .detail-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .detail-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .detail-card ul {
+      list-style: none;
+    }
+
+    .detail-card li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    .detail-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Tech Stack */
+    .tech-stack {
+      margin-bottom: 40px;
+    }
+
+    .tech-stack h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-tag {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .tech-tag.highlight {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 40px;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-dark);
+    }
+
+    .cta-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-light);
+      border: 2px solid var(--border-dark);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .demo-footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid var(--border-dark);
+      margin-top: 40px;
+    }
+
+    .demo-footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .project-details {
+        grid-template-columns: 1fr;
+      }
+      
+      .demo-title {
+        font-size: 2rem;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-container {
+        padding: 20px;
+      }
+      
+      .detail-card {
+        padding: 20px;
+      }
+      
+      .demo-title {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="demo-header">
+    <div class="container header-content">
+      <div class="logo">
+        <a href="../index.html">Achmad Aldino</a>
+      </div>
+      <a href="../index.html#projects" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+    </div>
+  </header>
 
-  <div class="video-wrapper">
-    <h1>Interactive Learning Media – Elementary School</h1>
-    <video controls>
-      <source src="media-interaktif.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+  <!-- Main Content -->
+  <main class="container">
+    <div class="demo-wrapper">
+      <!-- Demo Header -->
+      <div class="demo-header-content">
+        <span class="demo-badge">Interactive Media</span>
+        <h1 class="demo-title">Interactive Learning Media for Elementary School</h1>
+        <p class="demo-subtitle">
+          Engaging educational content developed with Adobe Animate, featuring interactive animations 
+          and learning modules designed to enhance student engagement and understanding.
+        </p>
+      </div>
 
+      <!-- Video Player -->
+      <div class="video-container">
+        <div class="video-player-wrapper">
+          <video id="demoVideo" poster="poster.jpg">
+            <source src="media-interaktif.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div class="video-controls">
+          <button class="play-btn" id="playBtn">
+            <i class="fas fa-play"></i>
+            <span>Play Demo</span>
+          </button>
+          <div class="time-display">
+            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Details -->
+      <div class="project-details">
+        <div class="detail-card">
+          <h3><i class="fas fa-lightbulb"></i> Project Overview</h3>
+          <ul>
+            <li>Interactive educational media for elementary students</li>
+            <li>Developed using Adobe Animate</li>
+            <li>Video walkthrough due to Flash deprecation</li>
+            <li>Engaging animations and educational content</li>
+            <li>Designed for ages 6-12 years old</li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h3><i class="fas fa-star"></i> Key Features</h3>
+          <ul>
+            <li>Interactive quizzes and activities</li>
+            <li>Colorful, child-friendly animations</li>
+            <li>Educational games for learning reinforcement</li>
+            <li>Progressive difficulty levels</li>
+            <li>Responsive design for various devices</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="tech-stack">
+        <h3>Technology Stack</h3>
+        <div class="tech-tags">
+          <span class="tech-tag highlight">Adobe Animate</span>
+          <span class="tech-tag">HTML5 Canvas</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Vector Graphics</span>
+          <span class="tech-tag">Interactive Media</span>
+          <span class="tech-tag">Educational Technology</span>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h3>Interested in This Project?</h3>
+        <p>
+          This interactive learning media demonstrates my ability to create engaging educational content.
+          I can develop similar projects tailored to your specific needs and requirements.
+        </p>
+        <div class="cta-buttons">
+          <a href="../index.html#contact" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+          <a href="../index.html#projects" class="btn btn-secondary">
+            <i class="fas fa-code"></i> View More Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="demo-footer">
+    <div class="container">
+      <p>© 2025 Achmad Aldino. Interactive Learning Media Demo. All content is for demonstration purposes.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('demoVideo');
+      const playBtn = document.getElementById('playBtn');
+      const currentTime = document.getElementById('currentTime');
+      const duration = document.getElementById('duration');
+      
+      // Format time (seconds to MM:SS)
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+      
+      // Update time display
+      function updateTimeDisplay() {
+        currentTime.textContent = formatTime(video.currentTime);
+        duration.textContent = formatTime(video.duration || 0);
+      }
+      
+      // Play/Pause functionality
+      playBtn.addEventListener('click', function() {
+        if (video.paused) {
+          video.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i><span>Pause</span>';
+        } else {
+          video.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i><span>Play</span>';
+        }
+      });
+      
+      // Update time on timeupdate
+      video.addEventListener('timeupdate', updateTimeDisplay);
+      
+      // Update duration when loaded
+      video.addEventListener('loadedmetadata', function() {
+        updateTimeDisplay();
+      });
+      
+      // Reset play button when video ends
+      video.addEventListener('ended', function() {
+        playBtn.innerHTML = '<i class="fas fa-play"></i><span>Play Again</span>';
+      });
+      
+      // Keyboard controls
+      document.addEventListener('keydown', function(e) {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playBtn.click();
+        }
+        
+        if (e.code === 'ArrowRight') {
+          video.currentTime += 5;
+        }
+        
+        if (e.code === 'ArrowLeft') {
+          video.currentTime -= 5;
+        }
+      });
+      
+      // Initialize
+      updateTimeDisplay();
+    });
+  </script>
 </body>
 </html>

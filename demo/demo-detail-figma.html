@@ -2,21 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>UI / UX Design Case Studies – Figma</title>
+  <title>UI/UX Design Portfolio | Achmad Aldino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
       --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
       --text-dark: #0f172a;
       --text-muted: #475569;
       --bg-light: #f8fafc;
       --border-light: #e5e7eb;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.3s ease;
     }
 
     * {
@@ -27,326 +39,844 @@
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      color: var(--text-dark);
       background: #ffffff;
+      color: var(--text-dark);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .container {
+    /* Header */
+    .demo-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .header-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border-light);
-      background: #ffffff;
-    }
-
-    header .container {
-      height: 64px;
+      padding: 0 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 72px;
     }
 
-    header a {
+    .logo a {
+      font-size: 1.2rem;
+      font-weight: 600;
       text-decoration: none;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo a::before {
+      content: "◈";
       color: var(--primary);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      transition: var(--transition);
       font-size: 0.95rem;
-      font-weight: 500;
     }
 
-    section {
-      padding: 70px 0;
+    .back-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
+    /* Main Content */
+    .demo-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
-
-    p {
-      color: var(--text-muted);
+    /* Hero Section */
+    .demo-hero {
+      margin-bottom: 60px;
+      text-align: center;
       max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .badge {
+    .project-badge {
       display: inline-block;
-      background: var(--bg-light);
+      background: var(--primary-light);
       color: var(--primary);
-      padding: 6px 12px;
+      padding: 8px 20px;
       border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-size: 0.85rem;
+      font-weight: 600;
       margin-bottom: 20px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
     }
 
-    /* ================= PROJECT CARD ================= */
-    .project {
-      border: 1px solid var(--border-light);
-      border-radius: 16px;
-      padding: 32px;
+    .demo-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .demo-hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .design-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
       margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* Project Cards */
+    .project-cards {
+      display: grid;
+      gap: 40px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: white;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
     }
 
     .project-header {
+      padding: 32px 32px 0;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 16px;
+    }
+
+    .project-title h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-dark);
     }
 
     .project-type {
-      font-size: 0.85rem;
+      display: inline-block;
+      background: var(--bg-light);
       color: var(--primary);
-      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border-light);
     }
 
     .project-content {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 32px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 32px;
     }
 
-    .project ul {
-      list-style: none;
-      margin-top: 12px;
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .project li {
-      font-size: 0.95rem;
+    .project-description p {
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
 
-    /* ================= SCREENSHOT ================= */
-    .project-preview {
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
-      overflow: hidden;
-      background: var(--bg-light);
-    }
-
-    .project-preview img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      background: #ffffff;
-    }
-
-    .preview-caption {
-      padding: 10px 12px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border-light);
-      background: var(--bg-light);
-      text-align: center;
-    }
-
-    .project-actions {
+    .project-features {
       margin-top: 20px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      border: 1px solid var(--border-light);
-      color: var(--primary);
-      transition: 0.2s ease;
+    .project-features h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .btn:hover {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
+    .project-features ul {
+      list-style: none;
     }
 
-    .note {
-      margin-top: 50px;
-      padding: 20px;
-      background: var(--bg-light);
-      border-left: 4px solid var(--primary);
+    .project-features li {
+      color: var(--text-muted);
       font-size: 0.95rem;
-      color: var(--text-muted);
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
     }
 
-    footer {
+    .project-features li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .project-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--border-light);
+      background: white;
+      color: var(--text-dark);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Preview Section */
+    .project-preview {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 20px;
+      transition: var(--transition);
+    }
+
+    .project-preview:hover .preview-img {
+      transform: scale(1.02);
+    }
+
+    .preview-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(37, 99, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .project-preview:hover .preview-overlay {
+      opacity: 1;
+    }
+
+    .overlay-content {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Note Section */
+    .note-section {
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      border: 1px solid var(--border-light);
+      margin-top: 60px;
+    }
+
+    .note-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .note-content p {
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .demo-footer {
       border-top: 1px solid var(--border-light);
-      padding: 30px 0;
+      padding: 40px 0;
       text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      margin-top: 60px;
     }
 
+    .demo-footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+
+    /* Image Loading */
+    .img-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Responsive */
     @media (max-width: 900px) {
       .project-content {
         grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .demo-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .design-stats {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .demo-container {
+        padding: 40px 20px;
+      }
+      
+      .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 15px;
+      }
+      
+      .demo-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .project-header,
+      .project-content {
+        padding: 24px;
+      }
+      
+      .project-title h2 {
+        font-size: 1.3rem;
+      }
+      
+      .project-actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-item {
+        min-width: 100px;
+      }
+      
+      .stat-number {
+        font-size: 1.5rem;
+      }
+      
+      .back-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .project-type {
+        font-size: 0.8rem;
+        padding: 4px 12px;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <strong>UI / UX Case Study</strong>
-    <a href="../index.html">← Back to Portfolio</a>
-  </div>
-</header>
-
-<section>
-  <div class="container">
-    <span class="badge">UI / UX Design • Figma</span>
-    <h1>UI / UX Design Case Studies</h1>
-    <p>
-      A collection of interface design concepts and prototypes created using Figma,
-      focusing on layout exploration, user flow, and interaction design.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-
-    <!-- PROJECT 1 -->
-    <div class="project">
-      <div class="project-header">
-        <h2>E-Learning Mobile App – UI Concept</h2>
-        <span class="project-type">Wireframe / UI Exploration</span>
+  <!-- Header -->
+  <header class="demo-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="../index.html">Achmad Aldino</a>
       </div>
+      <a href="../index.html#projects" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+    </div>
+  </header>
 
-      <div class="project-content">
-        <div>
-          <p>Mobile-first UI concept for an e-learning application.</p>
-          <ul>
-            <li>Content hierarchy</li>
-            <li>Simple navigation</li>
-            <li>Mobile usability</li>
-          </ul>
+  <!-- Main Content -->
+  <main class="demo-container">
+    
+    <!-- Hero Section -->
+    <section class="demo-hero">
+      <span class="project-badge">UI/UX Design Portfolio</span>
+      <h1>Figma Design Projects</h1>
+      <p>
+        A curated collection of interface designs and prototypes created using Figma. 
+        Each project explores different aspects of user experience, visual design, 
+        and interaction patterns for various digital products.
+      </p>
+      
+      <div class="design-stats">
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Figma</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">UI/UX</div>
+          <div class="stat-label">Focus</div>
+        </div>
+      </div>
+    </section>
 
-          <div class="project-actions">
-            <a href="https://www.figma.com/design/E0eIlxjwUAl4V1O78uk5U3/Untitled"
-               target="_blank" class="btn">View on Figma</a>
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <h2 class="section-title">Design Case Studies</h2>
+      
+      <div class="project-cards">
+        
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title">
+              <h2>E-Learning Mobile App – UI Concept</h2>
+              <span class="project-type">Wireframe / UI Exploration</span>
+            </div>
+          </div>
+          
+          <div class="project-content">
+            <div class="project-info">
+              <div>
+                <div class="project-description">
+                  <p>Mobile-first UI concept for an e-learning application focusing on intuitive navigation and content accessibility.</p>
+                </div>
+                
+                <div class="project-features">
+                  <h4><i class="fas fa-star"></i> Design Focus</h4>
+                  <ul>
+                    <li>Content hierarchy and information architecture</li>
+                    <li>Mobile-first responsive design approach</li>
+                    <li>Simple and intuitive navigation patterns</li>
+                    <li>Accessibility considerations</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="project-actions">
+                <a href="https://www.figma.com/design/E0eIlxjwUAl4V1O78uk5U3/Untitled" 
+                   target="_blank" class="btn btn-primary">
+                  <i class="fab fa-figma"></i> View on Figma
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-preview">
+              <img src="screenshot/e-learning.png" alt="E-learning UI Design" class="preview-img img-loading"
+                   onload="this.classList.remove('img-loading')"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
+              <div class="preview-overlay">
+                <div class="overlay-content">
+                  <i class="fas fa-expand-alt"></i> Preview Design
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="project-preview">
-          <img src="screenshot/e-learning.png" alt="E-learning UI">
-          <div class="preview-caption">E-learning mobile UI wireframe</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 2 -->
-    <div class="project">
-      <div class="project-header">
-        <h2>Lecturer Rating App – UI Concept</h2>
-        <span class="project-type">UI Concept / UX Flow</span>
-      </div>
-
-      <div class="project-content">
-        <div>
-          <p>Conceptual UI for lecturer rating application.</p>
-          <ul>
-            <li>Clear form flow</li>
-            <li>User-friendly feedback</li>
-          </ul>
-
-          <div class="project-actions">
-            <a href="https://www.figma.com/design/973jDvVHAfQfmvvY4CMynn/Untitled"
-               target="_blank" class="btn">View on Figma</a>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title">
+              <h2>Lecturer Rating App – UI Concept</h2>
+              <span class="project-type">UI Concept / UX Flow</span>
+            </div>
+          </div>
+          
+          <div class="project-content">
+            <div class="project-info">
+              <div>
+                <div class="project-description">
+                  <p>Conceptual UI design for a lecturer rating application with focus on user-friendly feedback collection.</p>
+                </div>
+                
+                <div class="project-features">
+                  <h4><i class="fas fa-star"></i> Design Focus</h4>
+                  <ul>
+                    <li>Clear and intuitive form design</li>
+                    <li>User-friendly feedback submission process</li>
+                    <li>Visual rating system</li>
+                    <li>Data visualization for results</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="project-actions">
+                <a href="https://www.figma.com/design/973jDvVHAfQfmvvY4CMynn/Untitled" 
+                   target="_blank" class="btn btn-primary">
+                  <i class="fab fa-figma"></i> View on Figma
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-preview">
+              <img src="screenshot/rating-dosen.png" alt="Lecturer Rating UI" class="preview-img img-loading"
+                   onload="this.classList.remove('img-loading')"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
+              <div class="preview-overlay">
+                <div class="overlay-content">
+                  <i class="fas fa-expand-alt"></i> Preview Design
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="project-preview">
-          <img src="screenshot/rating-dosen.png" alt="Rating Dosen UI">
-          <div class="preview-caption">Lecturer rating UI concept</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 3 -->
-    <div class="project">
-      <div class="project-header">
-        <h2>Kebun Hijau Product Catalog</h2>
-        <span class="project-type">UI Design / Visual Layout</span>
-      </div>
-
-      <div class="project-content">
-        <div>
-          <p>Product catalog design focusing on visual clarity.</p>
-          <ul>
-            <li>Product-focused layout</li>
-            <li>Clean presentation</li>
-          </ul>
-
-          <div class="project-actions">
-            <a href="https://www.figma.com/design/hNzFvU3xfp2nhBZMaOEN9g/katalog"
-               target="_blank" class="btn">View on Figma</a>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title">
+              <h2>Kebun Hijau Product Catalog</h2>
+              <span class="project-type">UI Design / Visual Layout</span>
+            </div>
+          </div>
+          
+          <div class="project-content">
+            <div class="project-info">
+              <div>
+                <div class="project-description">
+                  <p>Product catalog design focusing on visual clarity and product presentation for an agricultural business.</p>
+                </div>
+                
+                <div class="project-features">
+                  <h4><i class="fas fa-star"></i> Design Focus</h4>
+                  <ul>
+                    <li>Product-focused layout and organization</li>
+                    <li>Clean and minimal visual presentation</li>
+                    <li>Effective product categorization</li>
+                    <li>Visual hierarchy for product information</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="project-actions">
+                <a href="https://www.figma.com/design/hNzFvU3xfp2nhBZMaOEN9g/katalog" 
+                   target="_blank" class="btn btn-primary">
+                  <i class="fab fa-figma"></i> View on Figma
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-preview">
+              <img src="screenshot/kebun-hijau.png" alt="Kebun Hijau Catalog" class="preview-img img-loading"
+                   onload="this.classList.remove('img-loading')"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
+              <div class="preview-overlay">
+                <div class="overlay-content">
+                  <i class="fas fa-expand-alt"></i> Preview Design
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="project-preview">
-          <img src="screenshot/kebun-hijau.png" alt="Katalog Kebun Hijau">
-          <div class="preview-caption">Kebun Hijau catalog UI</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 4 -->
-    <div class="project">
-      <div class="project-header">
-        <h2>Game Platformer Prototype</h2>
-        <span class="project-type">Interactive Prototype</span>
-      </div>
-
-      <div class="project-content">
-        <div>
-          <p>Prototype UI for platformer game planning.</p>
-          <ul>
-            <li>Gameplay flow</li>
-            <li>Interactive elements</li>
-          </ul>
-
-          <div class="project-actions">
-            <a href="https://www.figma.com/proto/PFt9lo7OQwazoEz7Wo1Rg9"
-               target="_blank" class="btn">Open Prototype</a>
+        
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title">
+              <h2>Game Platformer Prototype</h2>
+              <span class="project-type">Interactive Prototype</span>
+            </div>
+          </div>
+          
+          <div class="project-content">
+            <div class="project-info">
+              <div>
+                <div class="project-description">
+                  <p>Interactive prototype for a platformer game focusing on gameplay flow and user interface design.</p>
+                </div>
+                
+                <div class="project-features">
+                  <h4><i class="fas fa-star"></i> Design Focus</h4>
+                  <ul>
+                    <li>Gameplay flow and user journey</li>
+                    <li>Interactive UI elements and controls</li>
+                    <li>Visual feedback systems</li>
+                    <li>Game state indicators</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="project-actions">
+                <a href="https://www.figma.com/proto/PFt9lo7OQwazoEz7Wo1Rg9" 
+                   target="_blank" class="btn btn-primary">
+                  <i class="fas fa-play-circle"></i> Open Prototype
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-preview">
+              <img src="screenshot/game-platform.png" alt="Game Platform Prototype" class="preview-img img-loading"
+                   onload="this.classList.remove('img-loading')"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'; this.classList.remove('img-loading')">
+              <div class="preview-overlay">
+                <div class="overlay-content">
+                  <i class="fas fa-expand-alt"></i> Preview Prototype
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="project-preview">
-          <img src="screenshot/game-platform.png" alt="Game Prototype">
-          <div class="preview-caption">Game UI prototype</div>
-        </div>
+        
       </div>
+    </section>
+
+    <!-- Note Section -->
+    <section class="note-section">
+      <h3 class="note-title"><i class="fas fa-lightbulb"></i> Design Philosophy</h3>
+      <div class="note-content">
+        <p>These designs represent explorations in UI/UX thinking, focusing on user-centered design principles, visual hierarchy, and interaction patterns.</p>
+        <p>Each project addresses specific design challenges and demonstrates different approaches to creating effective digital experiences.</p>
+        <p>All designs are created in Figma, showcasing capabilities in wireframing, prototyping, and visual design.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="demo-footer">
+    <div>
+      <p>© 2025 Achmad Aldino | UI/UX Design Portfolio</p>
+      <p>Designed in Figma | Focus on User Experience & Interface Design</p>
+      <p>Portfolio Project | Design Thinking & Visual Communication</p>
     </div>
+  </footer>
 
-    <div class="note">
-      These designs are presented as concepts and prototypes.
-      They demonstrate UI thinking, layout exploration, and interaction planning.
-    </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
 
-  </div>
-</section>
+      // Project card hover effects
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
 
-<footer>
-  <div class="container">
-    © 2025 Achmad Aldino – UI / UX Design Case Studies
-  </div>
-</footer>
+      // Image zoom functionality
+      const previewImages = document.querySelectorAll('.preview-img');
+      previewImages.forEach(img => {
+        img.addEventListener('click', function() {
+          const overlay = document.createElement('div');
+          overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: zoom-out;
+          `;
+          
+          const enlargedImg = document.createElement('img');
+          enlargedImg.src = this.src;
+          enlargedImg.alt = this.alt;
+          enlargedImg.style.cssText = `
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+          `;
+          
+          overlay.appendChild(enlargedImg);
+          document.body.appendChild(overlay);
+          
+          overlay.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+          });
+        });
+      });
+
+      // Image loading handling
+      const images = document.querySelectorAll('.preview-img');
+      images.forEach(img => {
+        if (img.complete && img.naturalHeight !== 0) {
+          img.classList.remove('img-loading');
+        }
+      });
+
+      // Add animation to stats
+      const statNumbers = document.querySelectorAll('.stat-number');
+      statNumbers.forEach(stat => {
+        const finalNumber = stat.textContent;
+        if (!isNaN(finalNumber)) {
+          let current = 0;
+          const increment = finalNumber / 20;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= finalNumber) {
+              current = finalNumber;
+              clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+          }, 50);
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
